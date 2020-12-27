@@ -1,0 +1,615 @@
+.page {
+    min-width: 1100px;
+    /* мы ещё не умеем делать мобильную версию сайта, */
+    /* поэтому выше установлена минимальная ширина страницы */
+    max-width: 1600px;
+    /* выше установили ограничение по максимальной ширине */
+    margin: 0 auto;
+    /* выше для экранов больше 1600px отцентрировали весь контент */
+    font-family:   'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.header {
+    height: 100vh;
+    min-height: 600px;
+    max-height: 756px;
+    /* выше установили ограничения для секции */
+    background-color: #F2F2F2;
+    display: flex;
+    position: relative; 
+    overflow: hidden;
+}
+
+.link{
+    opacity: 1;
+    transition: opacity .5s ease;
+}
+
+.link:hover{
+    opacity: .6;
+}
+
+.logo{
+    height: 32px;
+    width: 183px;
+    position: absolute;
+    top: 30px;
+    left: 64px;
+    z-index: 3;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.header__title{
+    width: 730px;
+    line-height: 96px;
+    font-size: 102px;
+    font-weight: bold;
+    position: absolute;
+    align-self: center;
+    left: 64px;
+    z-index: 3;
+}
+
+.header__subtitle{
+    width: 388px;
+    line-height: 25px;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    left: 64px;
+    bottom: 30px;
+    z-index: 3;
+}
+
+.header__link{
+    color: #2F80ED;
+    text-decoration: none;
+}
+
+.header__main-illustration{
+    height: 608px;
+    width: 765px;
+    position: absolute;  
+    right: 0px;
+    bottom: 0px; 
+    z-index: 2;
+}
+
+@keyframes rotate-360{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+/* ниже мы привели пример двух селекторов, чтобы вы вспомнили запись элемента */
+.header__square-pic {
+    height: 568px;
+    width: 568px;
+    background-color: #2F80ED;
+    position: absolute;
+    right: 0px;
+    top: 64px;
+    z-index: 1;
+    transform: rotate(-15deg);
+    animation: rotate-360 20s linear infinite;
+}
+
+.description{
+    display: grid;
+    grid-template-rows: 100px auto 100px;
+    grid-template-areas:
+        "."
+        "two-columns"
+        ".";
+}
+
+.two-columns{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    max-height: 420px;
+    justify-self: center;
+    grid-area: two-columns;
+}
+
+.two-columns__brief{
+    width: 175px;
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: normal;
+    color: #2F80ED;
+}
+
+.two-columns__main-text{
+    width: 80%;
+    min-width: 784px;
+    display: grid;
+    grid-template-rows: auto 30px auto 30px auto;
+    grid-template-areas: 
+    "two-columns__paragraph_first"
+    "."
+    "two-columns__paragraph_second"
+    "."
+    "two-columns__paragraph_third";
+}
+
+.two-columns__paragraph_first{
+    grid-area: two-columns__paragraph_first;
+}
+
+.two-columns__paragraph_second{
+    grid-area: two-columns__paragraph_second;
+}
+
+.two-columns__paragraph_third{
+    grid-area: two-columns__paragraph_third;
+}
+
+
+.two-columns__paragraph{
+    line-height: 34px;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0px;
+}
+
+.two-columns__span-accent{
+    line-height: 34px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.digits{
+    display: grid;
+    grid-template-rows: 100px auto 20px auto auto 100px;
+    grid-template-areas:
+        "."
+        "section-title"
+        "."
+        "section-subtitle"
+        "table"
+        ".";
+}
+
+.technics{
+    display: grid;
+    grid-template-rows: auto 20px auto 60px auto 100px;
+    grid-template-areas:
+        "section-title"
+        "."
+        "section-subtitle"
+        "."
+        "cards"
+        ".";
+}
+
+.cards{
+    max-width: 80%;
+    display: grid;
+    justify-self: center;
+    grid-template-columns: repeat(3, 240px);
+    grid-column-gap: 100px;
+    grid-row-gap: 60px;
+    grid-area: cards;
+}
+
+.cards__item{
+    width: 240px;
+}
+
+.cards__image{
+    object-fit: cover;
+    width: 160px;
+    height: 160px;
+    border-radius: 160px;
+    margin: 0px 40px;
+}
+
+.cards__title{
+    margin: 43px 0 16px;
+    line-height: 1.15;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cards__description{
+    margin: 0;
+    line-height: 23px;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.video{
+    display: grid;
+    grid-template-rows: auto 20px auto 50px 280px;
+    grid-template-areas:
+    "section-title"
+    "."
+    "section-subtitle"
+    "."
+    "video__iframes";
+}
+
+.video__iframes{
+    grid-area: video__iframes;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 1050px;
+    justify-content: space-between;
+}
+
+.video__iframe{
+    width: 515px;
+    height: 316px;
+    z-index: 2;
+    border: 0;
+}
+
+
+.section-title{
+    width: 60%;
+    line-height: 1.15;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px;
+    grid-area: section-title;
+    justify-self: center;
+}
+
+.section-subtitle{
+    width: 60%;
+    line-height: 34px;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+    margin: 0px;
+    grid-area: section-subtitle;
+    justify-self: center;
+}
+
+.oakley{
+    background-color: #F2F2F2;
+    display: grid;
+    grid-template-rows: 160px auto 80px;
+    grid-template-areas:
+        "."
+        "two-columns"
+        ".";
+}
+
+.two-columns__paragraph_content_oakley{
+    width: 80%;
+    min-width: 784px;
+}
+
+.table{
+    width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    grid-area: table;
+    justify-self: center;
+}
+
+.table__cell{
+   width: 250px;
+   margin-top: 60px;
+}
+
+.table__heading{
+    line-height: 1.15;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.table__text{
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 20px 0px 0px;;
+}
+
+.feinman{
+    height: 790px;
+    background-color: #F2F2F2;
+    background-image: url(../images/feinman.png);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 70px auto 3fr;
+    grid-template-areas:
+        "feinman__title"
+        "."
+        "container"
+        ".";
+}
+
+
+.feinman__title{
+    width: 648px;
+    line-height: 1.15;
+    font-size: 120px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0px;
+    grid-area: feinman__title;
+    justify-self: center;
+    text-align: center;
+}
+
+.feinman__subtitle{
+    width: auto;
+    line-height: 51px;
+    font-size: 36px;
+    font-weight: normal;
+    margin: 0px;
+    grid-area: feinman__subtitle;
+    justify-self: center;
+    text-align: center;
+}
+
+.feinman__container{
+    display: flex;
+    align-items: baseline;
+    grid-area: container;
+    justify-self: center;
+}
+
+.feinman__link{
+    line-height: 51px;
+    font-size: 36px;
+    font-weight: normal;
+    text-decoration: none;
+    color:black;
+    margin: 0px;
+    position: absolute;
+    right: 48px;
+}
+
+.kaufman{
+    background-color: #1f1f1f;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 90px auto 20px auto auto 90px;
+    grid-template-areas:
+        "."
+        "section-title_theme_dark"
+        "."
+        "section-subtitle_theme_dark"
+        "table_theme_dark"
+        ".";
+
+}
+
+.section-title_theme_dark{
+    width: 60%;
+    color: white;
+    grid-area: section-title_theme_dark;
+
+}
+
+.section-subtitle_theme_dark{
+    width: 60%;
+    color: white;
+    grid-area: section-subtitle_theme_dark;
+
+}
+
+.table_theme_dark{
+    grid-area: table_theme_dark;
+}
+
+/* и элемента с модификатором вида ключ-значение */
+.table__cell_theme_dark {
+    width: 200px;
+    color: white;
+    margin-right: 0;  /* Не понимаю, если честно, для чего эта хар-ка тут, может потому что некоторые браузеры там справа по умолчанию делают отступ??*/
+    margin-top: 80px;
+    z-index: 2;
+}
+
+.kaufman__triangle{
+    position: absolute;
+    top: 0px;
+    right: -210px;
+    height: 877px;
+    width: 877px;
+    z-index: 1;
+    animation: rotate-360 20s linear infinite;
+    
+}
+
+.khan{
+    background-color: #F2F2F2;
+    padding-top: 105px;
+}
+
+.khan__container{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    display: grid;
+    grid-template-rows: auto auto 50px auto 36px auto 10px auto 68px 608px;
+    grid-template-areas: 
+       "khan__author"
+       "khan__title" 
+       "."
+       "khan__quote"
+       "."
+       "khan__quote-author"
+       "."
+       "khan__quote-author-subline"
+       "."
+       "khan__book-container";
+
+}
+
+.khan__author{
+    grid-area: khan__author;
+    line-height: 42px;
+    font-size: 30px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.khan__title{
+    grid-area: khan__title;
+    line-height: 1.15;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.khan__quote{
+    grid-area: khan__quote;
+    width: 790px;
+    line-height: 34px;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.khan__quote-author{
+    grid-area: khan__quote-author;
+    line-height: 1.15;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.khan__quote-author-subline{
+    grid-area: khan__quote-author-subline;
+    line-height: 1.15;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.khan__book-container{
+    grid-area: khan__book-container;
+    position: relative;
+}
+
+.khan__book-pic{
+    object-fit: cover;
+    object-position: top;
+    width: 620px;
+    height: 608px;
+}
+
+.khan__buy-link{
+    line-height: 42px;
+    font-size: 30px;
+    font-weight: normal;
+    color: #2F80ED;
+    text-decoration: none;
+    position: absolute;
+    top: 0px;
+    left: 640px;
+}
+
+.resourses{
+    display: grid;
+    grid-template-rows: 100px auto 20px auto 80px 38px 217px;
+    grid-template-areas: 
+        "."
+        "section-title"
+        "."
+        "section-subtitle"
+        "."
+        "resourses__logo-zone"
+        ".";
+}
+
+.resourses__logo-zone{
+    grid-area: resourses__logo-zone;
+    width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    grid-column-gap: 6.6px;
+}
+
+.resourses__logo{
+    width: 270px;
+    height: 38px;
+}
+
+.footer{
+    min-height: 350px;
+    background-color: #1f1f1f;
+    display: grid;
+    grid-template-rows: 60px auto 40px;
+    grid-template-areas: 
+        "."
+        "footer__colums"
+        ".";
+}
+
+.footer__colums{
+    width: 90%;
+    grid-area: footer__colums;
+    justify-self: center;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.footer__column{
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.footer__column_content_copyright{
+    line-height: 25px;
+    font-weight: normal;
+    flex-basis: 711px;
+    position: relative;
+}
+
+.footer__column-heading{
+    font-weight: bold;
+    margin: 0px 0px 20px;
+}
+
+.footer__column-links{
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo_place_footer{
+    height: 35px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+
+.footer__autor{
+    position: absolute;
+    left: 0px;
+    bottom: 18px;
+}
+
+.footer__links{
+    text-decoration: none;
+    color: white;
+}
+
+.footer__social-icons{
+    height: 16px;
+    width: 16px;
+}
